@@ -102,6 +102,7 @@ h2 {
     display: grid;
     grid-template-columns: 1fr auto;
     align-items: start;
+    min-height: calc(100vh - 82px);
   }
 }
 </style>

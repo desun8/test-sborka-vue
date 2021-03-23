@@ -116,7 +116,7 @@ export default {
   height: 0;
   margin-left: -5px;
   margin-right: -5px;
-  padding-top: calc(188 / 250 * 100%); /* aspect ratio */
+  padding-top: calc(188 / (250 - 30) * 100%); /* aspect ratio */
 }
 
 .card__title {

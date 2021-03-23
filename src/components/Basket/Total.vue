@@ -31,7 +31,7 @@
       <td class="table__cell">{{ discount }}</td>
     </tr>
 
-    <tr class="table__row">
+    <tr class="table__row  table__row--large">
       <td class="table__cell  table__cell--bold">Total</td>
       <td class="table__cell  table__cell--bold">
         <span class="sr-only">{{a11yTotal}}</span>
@@ -90,6 +90,10 @@ export default {
   padding-right: 15px;
   font-size: 14px;
   line-height: 2.42857;
+}
+
+.table__row--large {
+  font-size: 18px;
 }
 
 .table__cell {

@@ -17,11 +17,11 @@ export default {
       required: true
     },
     jpgPath: {
-      type: Array,
+      type: String,
       required: true
     },
     webpPath: {
-      type: Array,
+      type: String,
       required: true
     },
     alt: String
