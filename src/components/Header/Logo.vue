@@ -1,5 +1,5 @@
 <template>
-  <img src="@/assets/images/logo.svg" alt="SP shop logo." width="89" height="32">
+  <img src="./logo.svg" alt="SP shop logo." width="89" height="32">
 </template>
 
 <script>

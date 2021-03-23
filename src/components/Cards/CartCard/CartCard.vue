@@ -1,20 +1,18 @@
 <template>
   <article class="card" :aria-label="title">
-    <div class="card__img-container">
-      <picture>
-        <source type="image/webp" :srcset="webpImg">
-        <img class="card__picture" :srcset="jpgImg" width="90" height="51" alt="Describe product image." loading="lazy">
-      </picture>
+    <div class="card__image">
+      <CardImage :width="90" :height="51" :jpg-path="jpgImg" :webp-path="webpImg" alt="Describe product image."/>
     </div>
 
     <h2 class="card__title">{{ title }}</h2>
 
     <div class="card__controllers">
       <div class="controllers">
-        <button @click="handleClickRemove" :disabled="count === 1" type="button" class="controllers__btn controllers__btn--remove"
+        <button @click="handleClickRemove" :disabled="count === 1" type="button"
+                class="controllers__btn controllers__btn--remove"
                 aria-label="Decrease item count."></button>
         <span class="controllers__count">
-          <span class="sr-only">Total item count {{count}}</span>
+          <span class="sr-only">Total item count {{ count }}</span>
           <span aria-hidden="true">{{ count }}</span>
         </span>
         <button @click="handleClickAdd" type="button" class="controllers__btn controllers__btn--add"
@@ -35,9 +33,11 @@
 <script>
 import toString from '@/utils/toString';
 import toA11yString from '@/utils/toA11yString';
+import CardImage from '@/components/Cards/CardImage';
 
 export default {
   name: 'CartItem',
+  components: { CardImage },
   props: {
     id: {
       type: String,
@@ -118,20 +118,12 @@ export default {
   margin-bottom: 0;
 }
 
-.card__img-container {
+.card__image {
   grid-area: image;
 
   position: relative;
   height: 0;
   padding-top: 100%; /* aspect ratio */
-}
-
-.card__picture {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 100%;
 }
 
 .card__title {
@@ -144,8 +136,6 @@ export default {
 .card__controllers {
   grid-area: controllers;
 
-  /*display: grid;*/
-  /*grid-auto-flow: column;*/
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;

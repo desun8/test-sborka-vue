@@ -16,14 +16,13 @@
 </template>
 
 <script>
-import CartItem from '@/components/Basket/Cart/CartItem';
+import CartItem from '@/components/Cards/CartCard/CartCard';
 
 export default {
   name: 'Cart',
   components: { CartItem },
   computed: {
     basketItems() {
-      console.log(this.$root.basketItems);
       return this.$root.basketItems;
     }
   }

@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import Cart from '@/components/Basket/Cart/Cart';
+import Cart from '@/components/Basket/Cart';
 import PromoCode from '@/components/Basket/PromoCode';
 import Total from '@/components/Basket/Total';
 import { disablePageScroll, enablePageScroll } from 'scroll-lock/dist/scroll-lock';

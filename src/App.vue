@@ -45,7 +45,6 @@ body {
 
 /* reset */
 input {
-  /*font-family: var(--font);*/
   font-family: inherit;
   font-size: inherit;
   line-height: inherit;
@@ -66,7 +65,7 @@ button:focus:not(:focus-visible) {
   outline: none;
 }
 
-h6 {
+h2 {
   margin: 0;
 }
 

@@ -1,11 +1,9 @@
 <template>
   <article class="card" :aria-label="title">
-    <div class="card__img-container">
-      <picture>
-        <source type="image/webp" :srcset="webpImg">
-        <img class="card__picture" :srcset="jpgImg" width="228" height="130" alt="Describe product image." loading="lazy">
-      </picture>
+    <div class="card__image">
+      <CardImage :width="228" :height="130" :jpg-path="jpgImg" :webp-path="webpImg" alt="Describe product image."/>
     </div>
+
     <h2 class="card__title">{{ title }}</h2>
     <button @click="handleClick" type="button" class="card__add" :aria-labelledby="`btn-label-${id}`">
       <span :id="`btn-label-${id}`" class="visually-hidden">Add {{ title }} to cart.</span>
@@ -20,9 +18,11 @@
 <script>
 import toString from '@/utils/toString';
 import toA11yString from '@/utils/toA11yString';
+import CardImage from '@/components/Cards/CardImage';
 
 export default {
   name: 'ProductCard',
+  components: { CardImage },
   props: {
     id: {
       type: String,
@@ -109,7 +109,7 @@ export default {
   border-radius: 3px;
 }
 
-.card__img-container {
+.card__image {
   grid-area: image;
 
   position: relative;
@@ -117,14 +117,6 @@ export default {
   margin-left: -5px;
   margin-right: -5px;
   padding-top: calc(188 / 250 * 100%); /* aspect ratio */
-}
-
-.card__picture {
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 100%;
 }
 
 .card__title {

@@ -9,17 +9,12 @@
 <script>
 export default {
   name: 'Cart',
-  // props: {
-  //   count: {
-  //     type: Number,
-  //     required: true
-  //   }
-  // },
   computed: {
     count() {
       return this.$root.totalItems;
     },
 
+    // Модификатор класса для больших значений.
     countClassMod() {
       if (this.count >= 10 && this.count < 100) {
         return 'cart__count--md';
@@ -41,7 +36,7 @@ export default {
   width: 30px;
   height: 28px;
 
-  background-image: url(../../assets/images/cart.svg);
+  background-image: url(cart.svg);
   background-repeat: no-repeat;
   background-position: left calc(var(--spacing) + 1px);
 }

@@ -8,8 +8,7 @@ Vue.config.productionTip = false;
 worker.start();
 
 
-// Или можно использовать vuex
-// Но в данном случае решил не усложнять (?)
+// Или можно было реализовать с помощью vuex
 new Vue({
   data: {
     basketItems: [],
@@ -41,6 +40,7 @@ new Vue({
     setDiscount(newVal) {
       this.discount = newVal;
     },
+
     addBasketItems(newItem) {
       const isExist = this.basketItems.some(item => item.id === newItem.id);
 
@@ -49,11 +49,12 @@ new Vue({
       } else {
         this.basketItems = [...this.basketItems, newItem];
       }
-
     },
+
     removeBasketItems(id) {
       this.basketItems = this.basketItems.filter(item => item.id !== id);
     },
+
     changeBasketItemCount(id, type) {
       switch (type) {
         case 'add':
@@ -65,7 +66,6 @@ new Vue({
 
             return item;
           });
-
           break;
         case 'remove':
           this.basketItems = this.basketItems.map(item => {
