@@ -140,7 +140,6 @@ export default {
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: center;
-  gap: 10px;
 }
 
 .controllers {
@@ -148,6 +147,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   width: 84px;
+  margin-right: 25px;
 }
 
 .controllers__btn {
