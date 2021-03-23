@@ -1,11 +1,9 @@
 <template>
-  <article>
-    <form @submit="handleSubmit" action="/api/promocode" class="form">
-      <label for="promocode" class="form__label">Promo code</label>
-      <input id="promocode" type="text" class="form__field" name="promocode" placeholder="Enter your promo code">
-      <button type="submit" class="form__submit">Apply</button>
-    </form>
-  </article>
+  <form @submit="handleSubmit" action="/api/promocode" class="form">
+    <label for="promocode" class="form__label">Promo code</label>
+    <input id="promocode" type="text" class="form__field" name="promocode" placeholder="Enter your promo code">
+    <button type="submit" class="form__submit">Apply</button>
+  </form>
 </template>
 
 <script>

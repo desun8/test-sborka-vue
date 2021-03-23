@@ -1,9 +1,9 @@
 <template>
-  <button class="cart" type="button" aria-describedby="cart-label">
-    <span id="cart-label" class="visually-hidden">Cart, {{ count }} items</span>
+  <span class="cart" aria-describedby="cart-label">
+    <span id="cart-label" class="visually-hidden">Cart has {{ count }} items.</span>
 
-    <span v-show="count" class="cart__count" :class="countClassMod">{{ count }}</span>
-  </button>
+    <span v-show="count" class="cart__count" :class="countClassMod" aria-hidden="true">{{ count }}</span>
+  </span>
 </template>
 
 <script>

@@ -1,6 +1,6 @@
 <template>
-  <article class="cart">
-    <h6 class="cart__title">My basket</h6>
+  <article class="cart" aria-label="Cart">
+    <h2 class="cart__title">My basket</h2>
 
     <CartItem
         v-for="item in basketItems"

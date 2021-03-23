@@ -1,43 +1,60 @@
 <template>
-  <article class="total">
-    <table class="table">
-      <tr class="table__row">
-        <th class="table__cell">Subtotal</th>
-        <th class="table__cell">{{ subtotal }}</th>
-      </tr>
+  <table class="table">
+    <caption class="sr-only">Basket total price</caption>
+    <tbody>
+    <tr class="table__row">
+      <td class="table__cell">Subtotal</td>
+      <td class="table__cell">
+        <span class="sr-only">{{a11ySubtotal}}</span>
+        <span aria-hidden="true">{{ subtotal }}</span>
+      </td>
+    </tr>
 
-      <tr class="table__row">
-        <th class="table__cell">Tax</th>
-        <th class="table__cell">{{ tax }}</th>
-      </tr>
+    <tr class="table__row">
+      <td class="table__cell">Tax</td>
+      <td class="table__cell">
+        <span class="sr-only">{{a11yTax}}</span>
+        <span aria-hidden="true">{{ tax }}</span>
+      </td>
+    </tr>
 
-      <tr class="table__row">
-        <th class="table__cell">Shipping</th>
-        <th class="table__cell">{{ shipping }}</th>
-      </tr>
+    <tr class="table__row">
+      <td class="table__cell">Shipping</td>
+      <td class="table__cell">
+        <span class="sr-only">{{a11yShipping}}</span>
+        <span aria-hidden="true">{{ shipping }}</span>
+      </td>
+    </tr>
 
-      <tr v-show="discount !== 0" class="table__row">
-        <th class="table__cell">Discount</th>
-        <th class="table__cell">{{ discount }}</th>
-      </tr>
+    <tr v-show="discount !== 0" class="table__row">
+      <td class="table__cell">Discount</td>
+      <td class="table__cell">{{ discount }}</td>
+    </tr>
 
-      <tr class="table__row">
-        <th class="table__cell  table__cell--bold">Total</th>
-        <th class="table__cell  table__cell--bold">{{ total }}</th>
-      </tr>
-    </table>
-  </article>
+    <tr class="table__row">
+      <td class="table__cell  table__cell--bold">Total</td>
+      <td class="table__cell  table__cell--bold">
+        <span class="sr-only">{{a11yTotal}}</span>
+        <span aria-hidden="true">{{ total }}</span>
+      </td>
+    </tr>
+    </tbody>
+  </table>
 </template>
 
 <script>
 import toString from '@/utils/toString';
+import toA11yString from '@/utils/toA11yString';
 
 export default {
   name: 'Total',
   data() {
     return {
       tax: toString(this.$root.tax),
+      a11yTax: toA11yString(this.$root.tax),
+
       shipping: toString(this.$root.shipping),
+      a11yShipping: toA11yString(this.$root.shipping),
     };
   },
 
@@ -45,17 +62,24 @@ export default {
     subtotal() {
       return toString(this.$root.itemsPrice);
     },
+    a11ySubtotal() {
+      return toA11yString(this.$root.itemsPrice);
+    },
 
     total() {
       return toString(this.$root.totalPrice);
     },
+    a11yTotal() {
+      return toA11yString(this.$root.totalPrice);
+    },
+
     discount() {
       if (this.$root.discount === 0) {
         return 0;
       }
 
       return this.$root.discount + '%';
-    }
+    },
   },
 };
 </script>

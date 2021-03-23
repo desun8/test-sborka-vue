@@ -1,5 +1,5 @@
 <template>
-  <article class="basket" :class="{'is-active': isActive}">
+  <article class="basket" :class="{'is-active': isActive}" aria-label="Basket">
     <div ref="scrollableElm" class="basket__container">
       <Cart/>
       <hr class="basket__divider">

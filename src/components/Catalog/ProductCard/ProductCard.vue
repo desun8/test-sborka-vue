@@ -1,21 +1,25 @@
 <template>
-  <article class="card">
+  <article class="card" :aria-label="title">
     <div class="card__img-container">
       <picture>
         <source type="image/webp" :srcset="webpImg">
-        <img class="card__picture" :srcset="jpgImg" width="228" height="130" :alt="title" loading="lazy">
+        <img class="card__picture" :srcset="jpgImg" width="228" height="130" alt="Describe product image." loading="lazy">
       </picture>
     </div>
-    <h6 class="card__title">{{ title }}</h6>
+    <h2 class="card__title">{{ title }}</h2>
     <button @click="handleClick" type="button" class="card__add" :aria-labelledby="`btn-label-${id}`">
       <span :id="`btn-label-${id}`" class="visually-hidden">Add {{ title }} to cart.</span>
     </button>
-    <span class="card__price">{{ formattedPrice }}</span>
+    <span class="card__price">
+      <span class="sr-only">Item price {{a11yPrice}}</span>
+      <span aria-hidden="true">{{ formattedPrice }}</span>
+    </span>
   </article>
 </template>
 
 <script>
 import toString from '@/utils/toString';
+import toA11yString from '@/utils/toA11yString';
 
 export default {
   name: 'ProductCard',
@@ -59,6 +63,10 @@ export default {
 
     formattedPrice() {
       return toString(this.price);
+    },
+
+    a11yPrice() {
+      return toA11yString(this.price);
     }
   },
 

@@ -3,7 +3,10 @@
       @click="handleClick"
       :class="{'is-active': isActive}"
       class="hamburger hamburger--squeeze"
-      type="button">
+      type="button"
+      aria-haspopup="true"
+      :aria-expanded="isActive"
+  >
     <span class="hamburger-box">
       <span class="hamburger-inner"></span>
     </span>

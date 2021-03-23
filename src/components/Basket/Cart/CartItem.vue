@@ -1,33 +1,40 @@
 <template>
-  <article class="card">
+  <article class="card" :aria-label="title">
     <div class="card__img-container">
       <picture>
         <source type="image/webp" :srcset="webpImg">
-        <img class="card__picture" :srcset="jpgImg" width="90" height="51" :alt="title" loading="lazy">
+        <img class="card__picture" :srcset="jpgImg" width="90" height="51" alt="Describe product image." loading="lazy">
       </picture>
     </div>
 
-    <h6 class="card__title">{{ title }}</h6>
+    <h2 class="card__title">{{ title }}</h2>
 
     <div class="card__controllers">
       <div class="controllers">
-        <button @click="handleClickRemove" type="button" class="controllers__btn controllers__btn--remove"
-                aria-label="Decrease count"></button>
-        <span class="controllers__count" aria-label="Total count">{{ count }}</span>
+        <button @click="handleClickRemove" :disabled="count === 1" type="button" class="controllers__btn controllers__btn--remove"
+                aria-label="Decrease item count."></button>
+        <span class="controllers__count">
+          <span class="sr-only">Total item count {{count}}</span>
+          <span aria-hidden="true">{{ count }}</span>
+        </span>
         <button @click="handleClickAdd" type="button" class="controllers__btn controllers__btn--add"
-                aria-label="Increase count"></button>
+                aria-label="Increase item count."></button>
       </div>
 
-      <span class="card__price">{{ formattedPrice }}</span>
+      <span class="card__price">
+        <span class="sr-only">Total item price {{ a11yPrice }}</span>
+        <span aria-hidden="true">{{ formattedPrice }}</span>
+      </span>
     </div>
 
     <button @click="handleClickDelete" type="button" class="card__remove"
-            aria-label="Remove item form basket."></button>
+            aria-label="Remove item from basket."></button>
   </article>
 </template>
 
 <script>
 import toString from '@/utils/toString';
+import toA11yString from '@/utils/toA11yString';
 
 export default {
   name: 'CartItem',
@@ -71,6 +78,10 @@ export default {
 
     formattedPrice() {
       return toString(this.price);
+    },
+
+    a11yPrice() {
+      return toA11yString(this.price);
     }
   },
 
