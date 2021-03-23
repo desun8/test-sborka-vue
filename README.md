@@ -1,24 +1,14 @@
-# test-vue-sborka
+# Тестовое задание от sborka
 
-## Project setup
-```
-npm install
-```
+###Требования по механике:
+1. Возможность добавлять и удалять товары из корзины;
+1. Возможность изменять количество товаров;
+1. Сумма товаров должна корректно считаться;
+1. Налог и сумма доставки всегда фиксированы;
+1. По промокоду SBORKA применяется скидка 15%.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+###На что обратим внимание при проверке:
+1. На аккуратность верстки
+1. На соответствие макету;
+1. На организацию кода;
+1. На кроссбраузерность (будем смотреть в последних версиях Safari, Google Chrome, Mozilla FireFox, Opera, Яндекс Браузер, Microsoft Edge).
