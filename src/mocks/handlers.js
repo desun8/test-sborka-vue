@@ -7,7 +7,7 @@ export const handlers = [
     return res(
       ctx.status(200),
       ctx.json({
-        results: jsonData,
+        results: JSON.stringify(jsonData),
         success: true
       })
     );

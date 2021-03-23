@@ -33,7 +33,7 @@ export default {
           return response.json();
         })
         .then(json => {
-          this.productItems = json.results;
+          this.productItems = JSON.parse(json.results);
         })
         .catch((error) => {
           console.error(error);
