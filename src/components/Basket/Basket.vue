@@ -63,6 +63,7 @@ export default {
   width: 100%;
   height: calc(100vh - 82px);
   padding: 20px;
+  padding-bottom: 100px;
   background-color: #fff;
   overflow: hidden auto;
 
@@ -96,6 +97,7 @@ export default {
 @media (min-width: 25em) {
   .basket__container {
     padding: 40px;
+    padding-bottom: 100px;
   }
 }
 
