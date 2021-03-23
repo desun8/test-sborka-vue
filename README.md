@@ -1,7 +1,10 @@
 # Тестовое задание от sborka
 Демо - https://sharp-kepler-d0cf40.netlify.app/
 
-Проверял в последних версиях Safari, Firefox, Chrome и Edge. Мобильную версию смотрел на Iphone SE 1gen (safari) и Samsung m31 (chrome)
+Проверял в последних версиях Safari, Firefox, Chrome и Edge. Мобильную версию смотрел на Iphone SE 1gen (safari) и Samsung m31 (chrome).
+
+### Проблемы
+1. На ios есть проблема (немного ломается верстка) при зуме в открытой корзине. 
 
 ### Требования по механике:
 1. Возможность добавлять и удалять товары из корзины ✅
