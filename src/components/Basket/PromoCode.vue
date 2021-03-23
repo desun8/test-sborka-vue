@@ -60,6 +60,7 @@ export default {
 .form__field {
   padding: 8px 10px;
   background-color: #ededf1;
+  font-size: 16px;
   border-radius: 3px;
 }
 
